@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FunCards Project">
+    <title>FunCards</title>
+    <link rel="stylesheet" href="/assets/css/index.css">
+</head>
+<body>
+<section>
+    <img src="/assets/img/curve.png" class="wave" alt="wave"/>
+    <div class="contentBx">
+        <h2>Coming Soon</h2>
+        <div class="countdown">
+            <div class="time">
+                <div id="day"></div>
+                <span>Days</span>
+            </div>
+            <div class="time">
+                <div id="hour"></div>
+                <span>Hours</span>
+            </div>
+            <div class="time">
+                <div id="minute"></div>
+                <span>Minutes</span>
+            </div>
+            <div class="time">
+                <div id="second"></div>
+                <span>Seconds</span>
+            </div>
+        </div>
+    </div>
+    <div class="imgBx">
+        <img src="/assets/img/man.png" alt="man"/>
+    </div>
+    <ul class="sci">
+        <li>
+            <a href="https://github.com/funcards" target="_blank">
+                <img src="/assets/img/GitHub.png" alt="GitHub"/>
+            </a>
+        </li>
+    </ul>
+</section>
+<script type="text/javascript">
+    const countDate = new Date('May 31,2023 00:00:00').getTime();
+
+    function cd() {
+        const now = new Date().getTime();
+        gap = countDate - now;
+        const second = 1000;
+        const minute = second * 60;
+        const hour = minute * 60;
+        const day = hour * 24;
+        const d = Math.floor(gap / day);
+        const h = Math.floor((gap % (day)) / (hour));
+        const m = Math.floor((gap % (hour)) / (minute));
+        const s = Math.floor((gap % (minute)) / second);
+        document.getElementById('day').innerText = d;
+        document.getElementById('hour').innerText = h;
+        document.getElementById('minute').innerText = m;
+        document.getElementById('second').innerText = s;
+    }
+
+    setInterval(function () {
+        cd();
+    }, 1000)
+</script>
+</body>
+</html>
